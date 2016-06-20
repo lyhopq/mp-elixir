@@ -52,13 +52,13 @@ defmodule Translator do
   defp interpolate(string) do
     ~r/(?<head>)%{[^}]+}(?<tail>)/
     |> Regex.split(string, on: [:head, :tail])
-    |> Enum.reduce "", fn <<"%{" <> rest>>, acc ->
+    |> Enum.reduce("", fn <<"%{" <> rest>>, acc ->
                             key = String.to_atom(String.rstrip(rest, ?}))
                             quote do
                               unquote(acc) <> to_string(Dict.fetch!(bindings, unquote(key)))
                             end
                           segment, acc -> quote do: (unquote(acc) <> unquote(segment))
-                        end
+                        end)
   end
 
   defp append_path("", next), do: to_string(next)

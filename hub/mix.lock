@@ -1,0 +1,3 @@
+%{"httpotion": {:hex, :httpotion, "1.0.0", "d8e1c49de6333d35d80ece0d3421e1f227a97ac7a599ec46dc8fd950f9f44a10", [:mix], []},
+  "ibrowse": {:git, "https://github.com/cmullaparthi/ibrowse.git", "b28542d1e326ba44bcfaf7fd6d3c7f8761d20f08", []},
+  "poison": {:hex, :poison, "1.3.1", "5df7a442df825ebd2e3ebb29a2e17f6ae01d1cd34a5bfcb6c82f32177d4cf130", [:mix], []}}
