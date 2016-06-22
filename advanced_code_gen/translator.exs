@@ -30,7 +30,7 @@ defmodule Translator do
       def t(_locale, _path, _bindings), do: {:error, :no_translation}
     end
 
-    IO.puts Macro.to_string(final_ast)
+    # IO.puts Macro.to_string(final_ast)
     final_ast
   end
 
@@ -42,7 +42,12 @@ defmodule Translator do
       else
         quote do
           def t(unquote(locale), unquote(path), bindings) do
-            unquote(interpolate(val))
+            string = unquote(interpolate(val))
+            if Dict.get(bindings, :count, 1) > 1 do
+              string <> "s"
+            else
+              string
+            end
           end
         end
       end
